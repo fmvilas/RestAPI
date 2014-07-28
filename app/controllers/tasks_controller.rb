@@ -18,7 +18,11 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
+    @task = Task.new do |t|
+      t.title = params[:title]
+      t.picture = params[:picture]
+      t.description = params[:description]
+    end
 
     if @task.save
       render json: @task, status: :created, location: @task
@@ -32,7 +36,11 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    if @task.update(params[:task])
+    @task.title = params[:title]
+    @task.picture = params[:picture]
+    @task.description = params[:description]
+
+    if @task.save
       head :no_content
     else
       render json: @task.errors, status: :unprocessable_entity
