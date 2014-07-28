@@ -23,7 +23,6 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
   Tasks.TaskList = Backbone.Collection.extend({
     model: Tasks.Task,
 
-    //localStorage: new Backbone.LocalStorage('tasks-backbone-marionette'),
     url: '/api/v1/tasks',
 
     comparator: 'created'

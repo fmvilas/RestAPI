@@ -3,12 +3,9 @@
 
 TasksApp.module('Layout', function (Layout, App, Backbone) {
   // Layout Header View
-  // ------------------
   Layout.Header = Backbone.Marionette.ItemView.extend({
     template: '#template-header',
 
-    // UI bindings create cached attributes that
-    // point to jQuery selected objects
     ui: {
       title: '#new-task',
       description: '#new-task-description',

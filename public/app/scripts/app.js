@@ -1,8 +1,6 @@
 /*global Backbone */
 'use strict';
 
-// TasksApp is global for developing in the console
-// and functional testing.
 window.TasksApp = new Backbone.Marionette.Application();
 
 TasksApp.addRegions({
