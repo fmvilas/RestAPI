@@ -8,6 +8,7 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
+gem 'rails_12factor'
 
 
 # To use ActiveModel has_secure_password
