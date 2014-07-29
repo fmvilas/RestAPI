@@ -91,12 +91,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-#new-task {
-  display: block;
+#new-task-description {
+  height: 5em;
 }
 
-#new-task-description {
-  width: 100%;
+#new-task-description:focus {
   height: 10em;
 }
 
@@ -108,8 +107,17 @@ textarea {
   display: block;
 }
 
+#task-list li.editing .view {
+  display: none;
+}
 
+#task-list .edit-description {
+  height: 10em;
+}
 
+#task-list .task-picture {
+  max-width: 100%;
+}
 
 
 

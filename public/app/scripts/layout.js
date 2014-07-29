@@ -9,20 +9,28 @@ TasksApp.module('Layout', function (Layout, App, Backbone) {
     ui: {
       title: '#new-task',
       description: '#new-task-description',
+      picture: '#new-task-picture',
       addTask: '#add-new-task'
     },
 
     events: {
-      'click #add-new-task': 'onAddTaskClick'
+      'click #add-new-task': 'onAddTaskClick',
+      'change #new-task-picture': 'onNewTaskPictureChange'
+    },
+
+    onRender: function() {
+      this.ui.picture.bootstrapFileInput();
     },
 
     onAddTaskClick: function() {
       var taskTitle = this.ui.title.val().trim(),
-          taskDescription = this.ui.description.val();
+          taskDescription = this.ui.description.val(),
+          taskPicture = this.ui.picture.data('base64');
 
       if( taskTitle ) {
         this.collection.create({
           title: taskTitle,
+          picture: taskPicture && taskPicture.length ? taskPicture : null,
           description: taskDescription
         });
         this.ui.title.val('');
@@ -30,6 +38,12 @@ TasksApp.module('Layout', function (Layout, App, Backbone) {
       } else {
         alert("Task's title can't be empty!");
       }
+    },
+
+    onNewTaskPictureChange: function(e) {
+      App.ImageUploader.fileInputToBase64(e.target, function(base64) {
+        $(e.target).data('base64', base64);
+      });
     }
   });
 });

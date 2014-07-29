@@ -8,6 +8,7 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
     defaults: {
       title: '',
       description: '',
+      picture: null,
       created: 0
     },
 

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+    <link rel="stylesheet" href="app/bower_components/font-awesome/css/font-awesome.css">
+
     <link rel="stylesheet" type="text/css" href="app/styles/main.css">
 </head>
 <body>
@@ -19,33 +21,78 @@
     </div>
 
     <div id="tasksapp" class="content">
-      <div id="header"></div>
+      <div id="header" class="form-horizontal"></div>
       <div id="main"></div>
     </div>
 
     <script type="text/html" id="template-header">
-      <input id="new-task" placeholder="What's next?" autofocus>
-      <textarea id="new-task-description"></textarea>
-      <button id="add-new-task">Add New Task</button>
+      <div class="form-group">
+        <div class="col-md-6">
+          <input id="new-task" placeholder="What's next?" class="form-control" tabindex="1" autofocus>
+        </div>
+        <div class="col-md-4">
+          <input type="file" id="new-task-picture" class="form-control" tabindex="3" data-filename-placement="inside" title="Select a picture...">
+        </div>
+        <div class="col-md-1">
+          <button id="add-new-task" class="btn btn-primary" title="Add new task" tabindex="4"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <textarea id="new-task-description" tabindex="2" class="form-control" placeholder="Add some additional description here..."></textarea>
+        </div>
+      </div>
     </script>
 
     <script type="text/html" id="template-taskItemView">
       <div class="view">
-        <span><%- title %></span>
-        <p><%- description %></p>
-        <button class="edit">Edit</button>
-        <button class="destroy">Destroy</button>
+        <div class="row">
+          <div class="content col-md-10">
+            <span><%- title %></span>
+          </div>
+          <div class="col-md-2">
+            <button class="edit btn btn-primary" title="Edit task"><i class="fa fa-edit"></i></button>
+            <button class="destroy btn btn-primary" title="Destroy task"><i class="fa fa-trash-o"></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <p class="col-md-12">
+            <%= description.replace(new RegExp('\r?\n', 'g'), '<br>') %>
+
+          </p>
+        </div>
+        <% if( typeof picture === 'string' && picture.length > 0 ) { %>
+            <div class="row">
+              <img src="<%- picture %>" class="task-picture">
+            </div>
+        <% } %>
       </div>
-      <div class="edit-area">
-        <input class="edit-title" value="<%- title %>">
-        <textarea class="edit-description"><%- description %></textarea>
-        <button class="save-edited-task">Save Task</button>
-        <button class="cancel-edit-task">Cancel</button>
+
+      <div class="edit-area form-horizontal">
+        <div class="form-group">
+          <div class="col-md-8">
+            <input class="edit-title form-control" value="<%- title %>">
+          </div>
+          <div class="col-md-4">
+            <input type="file" class="edit-picture form-control" data-filename-placement="inside" title="Select a picture...">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <textarea class="edit-description form-control"><%- description %></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <button class="btn btn-primary save-edited-task" title="Save task"><i class="fa fa-cloud-upload"></i> Upload</button>
+            <button class="btn btn-default cancel-edit-task">Discard changes</button>
+          </div>
+        </div>
       </div>
     </script>
 
     <script type="text/html" id="template-taskListCompositeView">
-      <ul id="task-list"></ul>
+      <ul id="task-list" class="list-group"></ul>
     </script>
 
   </div> <!-- /container -->
@@ -54,12 +101,14 @@
   <script src="app/bower_components/lodash/lodash.js"></script>
   <script src="app/bower_components/backbone/backbone.js"></script>
   <script src="app/bower_components/marionette/lib/backbone.marionette.js"></script>
+  <script src="app/scripts/vendor/bootstrap.file-input.js"></script>
 
   <script src="app/scripts/app.js"></script>
   <script src="app/scripts/tasks.js"></script>
   <script src="app/scripts/layout.js"></script>
   <script src="app/scripts/views.js"></script>
   <script src="app/scripts/tasklist.js"></script>
+  <script src="app/scripts/imageuploader.js"></script>
   <script>
   $(function () {
     TasksApp.start();
