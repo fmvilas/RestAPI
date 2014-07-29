@@ -15,7 +15,6 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
     initialize: function () {
       if(this.isNew()) {
         this.set('created_at', Date.now());
-        this.set('updated_at', Date.now());
       }
     }
   });

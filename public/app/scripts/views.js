@@ -54,6 +54,7 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
         this.model.set('title', taskTitle).save();
         this.model.set('picture', taskPicture).save();
         this.model.set('description', taskDescription).save();
+        this.model.set('updated_at', Date.now()).save();
         this.$el.removeClass('editing');
       } else {
         alert("Task's title can't be empty!");

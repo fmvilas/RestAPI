@@ -27,6 +27,9 @@ TasksApp.module('TaskList', function (TaskList, App, Backbone, Marionette, $, _)
       });
 
       listView.listenTo(listView.collection, 'sort', listView.render);
+      listView.listenTo(listView.collection, 'change', function() {
+        listView.collection.sort();
+      });
 
       App.main.show(listView);
     }
