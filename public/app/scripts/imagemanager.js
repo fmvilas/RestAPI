@@ -11,10 +11,15 @@ TasksApp.module('ImageManager', function (ImageManager, App, Backbone) {
 
       img.onload = function(){
         var r = MAXWidthHeight / Math.max(this.width,this.height),
-            w = this.width > MAXWidthHeight ? Math.round(this.width*r) : this.width,
-            h = this.height > MAXWidthHeight ? Math.round(this.height*r) : this.height,
+            w = this.width,
+            h = this.height,
             c = document.createElement("canvas"),
             base64;
+
+        if( w > MAXWidthHeight || h > MAXWidthHeight ) {
+          w = Math.round(w*r);
+          h = Math.round(h*r);
+        }
 
         c.width = w;
         c.height = h;
