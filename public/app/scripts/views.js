@@ -52,7 +52,9 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
 
       if( taskTitle ) {
         this.model.set('title', taskTitle).save();
-        this.model.set('picture', taskPicture).save();
+        if( this.ui.editPicture.files && this.ui.editPicture.files.length ) {
+          this.model.set('picture', taskPicture).save();
+        }
         this.model.set('description', taskDescription).save();
         this.model.set('updated_at', Date.now()).save();
         this.$el.removeClass('editing');
