@@ -28,8 +28,8 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
     url: '/api/v1/tasks',
 
     comparator: function(a, b) {
-      var aDate = new Date(a.get('created_at')).valueOf(),
-          bDate = new Date(b.get('created_at')).valueOf(),
+      var aDate = new Date(a.get('updated_at')).valueOf(),
+          bDate = new Date(b.get('updated_at')).valueOf(),
           ret;
 
       if( aDate > bDate ) {
