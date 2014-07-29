@@ -22,9 +22,13 @@ TasksApp.module('TaskList', function (TaskList, App, Backbone, Marionette, $, _)
     },
 
     showTaskList: function (taskList) {
-      App.main.show(new TaskList.Views.ListView({
+      var listView = new TaskList.Views.ListView({
         collection: taskList
-      }));
+      });
+
+      listView.listenTo(listView.collection, 'sort', listView.render);
+
+      App.main.show(listView);
     }
   });
 

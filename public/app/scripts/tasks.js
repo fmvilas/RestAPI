@@ -14,7 +14,8 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
 
     initialize: function () {
       if(this.isNew()) {
-        this.set('created', Date.now());
+        this.set('created_at', Date.now());
+        this.set('updated_at', Date.now());
       }
     }
   });
@@ -26,6 +27,20 @@ TasksApp.module('Tasks', function (Tasks, App, Backbone) {
 
     url: '/api/v1/tasks',
 
-    comparator: 'created'
+    comparator: function(a, b) {
+      var aDate = new Date(a.get('created_at')).valueOf(),
+          bDate = new Date(b.get('created_at')).valueOf(),
+          ret;
+
+      if( aDate > bDate ) {
+        ret = -1;
+      } else if( aDate < bDate ) {
+        ret = 1;
+      } else {
+        ret = 0;
+      }
+
+      return ret;
+    }
   });
 });

@@ -41,7 +41,7 @@ TasksApp.module('Layout', function (Layout, App, Backbone) {
     },
 
     onNewTaskPictureChange: function(e) {
-      App.ImageUploader.fileInputToBase64(e.target, function(base64) {
+      App.ImageManager.fileInputToBase64(e.target, function(base64) {
         $(e.target).data('base64', base64);
       });
     }

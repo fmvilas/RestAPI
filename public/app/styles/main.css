@@ -91,12 +91,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.header {
+  margin-bottom: 30px;
+}
+
 #new-task-description {
   height: 5em;
 }
 
 #new-task-description:focus {
   height: 10em;
+}
+
+#task-list h2 {
+  margin-top: 0;
 }
 
 #task-list li .edit-area {

@@ -29,7 +29,7 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
     },
 
     onRender: function() {
-      $(this.ui.editPicture).bootstrapFileInput();
+      this.ui.editPicture.bootstrapFileInput();
     },
 
     destroy: function () {
@@ -67,7 +67,7 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
     },
 
     onTaskPictureChange: function(e) {
-      App.ImageUploader.fileInputToBase64(e.target, function(base64) {
+      App.ImageManager.fileInputToBase64(e.target, function(base64) {
         $(e.target).data('base64', base64);
       });
     }
