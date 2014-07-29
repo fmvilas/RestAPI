@@ -35,7 +35,7 @@ TasksApp.module('Layout', function (Layout, App, Backbone) {
         });
         this.ui.title.val('');
         this.ui.description.val('');
-        this.ui.removeData('base64');
+        this.ui.picture.removeData('base64');
       } else {
         alert("Task's title can't be empty!");
       }
