@@ -11,7 +11,8 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
       edit: '#edit-task',
       editTitle: '.edit-title',
       editDescription: '.edit-description',
-      editPicture: '.edit-picture'
+      editPicture: '.edit-picture',
+      viewDescription: '.view-description'
     },
 
     className: 'list-group-item',
@@ -30,6 +31,9 @@ TasksApp.module('TaskList.Views', function (Views, App, Backbone, Marionette, $)
 
     onRender: function() {
       this.ui.editPicture.bootstrapFileInput();
+      var desc = this.ui.viewDescription.text(this.model.get('description')).html();
+
+      this.ui.viewDescription.html( desc.replace(new RegExp('\r?\n', 'g'), '<br>') );
     },
 
     destroy: function () {
