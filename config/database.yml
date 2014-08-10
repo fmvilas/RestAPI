@@ -80,7 +80,3 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  #database: dd0ko1qj07bhdr
-  #username: gyvfhfluirbbkv
-  password: <%= ENV['RESTAPI_DATABASE_PASSWORD'] %>
