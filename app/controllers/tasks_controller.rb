@@ -22,7 +22,7 @@ class TasksController < ApplicationController
       t.title = params[:title]
       t.picture = params[:picture]
       t.description = params[:description]
-      t.color = params[:color]
+      t.color = params[:color] || 'white'
       t.date = params[:date]
       t.order = params.has_key?(:order) ? params[:order] : 0
     end
