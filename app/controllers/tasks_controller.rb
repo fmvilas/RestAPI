@@ -22,6 +22,9 @@ class TasksController < ApplicationController
       t.title = params[:title]
       t.picture = params[:picture]
       t.description = params[:description]
+      t.color = params[:color]
+      t.date = params[:date]
+      t.order = params.has_key?(:order) ? params[:order] : 0
     end
 
     if @task.save
@@ -36,9 +39,12 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    @task.title = params[:title]
-    @task.picture = params[:picture]
-    @task.description = params[:description]
+    @task.title = params[:title] || @task.title
+    @task.picture = params.has_key?(:picture) ? params[:picture] : @task.picture
+    @task.description = params[:description] || @task.description
+    @task.color = params[:color] || @task.color
+    @task.date = params.has_key?(:date) ? params[:date] : @task.date
+    @task.order = params[:order] || @task.order
 
     if @task.save
       head :no_content

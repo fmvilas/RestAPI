@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20140728205606) do
 
   create_table "tasks", force: true do |t|
     t.string   "title"
-    t.text   "picture"
+    t.text     "picture"
     t.text     "description"
+    t.datetime "date"
+    t.string   "color"
+    t.integer  "order"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,13 +1,12 @@
-/*global Backbone */
+/*global define*/
 'use strict';
 
-window.TasksApp = new Backbone.Marionette.Application();
+define([
+  'marionette',
+], function(Marionette) {
 
-TasksApp.addRegions({
-  header: '#header',
-  main: '#main'
-});
+  var App = new Marionette.Application();
 
-TasksApp.on('initialize:after', function () {
-  Backbone.history.start();
+  return App;
+
 });

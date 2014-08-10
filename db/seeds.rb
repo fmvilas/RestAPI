@@ -6,9 +6,11 @@
 
 tasks = Task.create([{
 	title: 'How to cook',
-	description: 'Learn how to cook'
+	description: 'Learn how to cook',
+  color: 'peter-river'
 }, {
 	title: 'Creating a RESTful API with Rails',
-	description: 'a long content in here'
+	description: 'a long content in here',
+  color: 'clouds'
 }])
 
