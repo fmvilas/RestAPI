@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: RestAPI_production
-  username: RestAPI
+  database: dd0ko1qj07bhdr
+  username: gyvfhfluirbbkv
   password: <%= ENV['RESTAPI_DATABASE_PASSWORD'] %>
