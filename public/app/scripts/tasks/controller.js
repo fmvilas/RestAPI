@@ -3,11 +3,12 @@
 'use strict';
 
 define([
+  'app',
   'layout/view',
   'tasks-header/view',
   'tasks/collection',
   'tasks/view'
-], function(layoutView, TasksHeaderView, TasksCollection, TasksView) {
+], function(App, layoutView, TasksHeaderView, TasksCollection, TasksView) {
 
   var index = function() {
     layoutView.render();
@@ -41,7 +42,17 @@ define([
 
     // Render header view and fecth the collection
     listHeaderView.render();
-    tasksCollection.fetch();
+    tasksCollection.fetch({
+      success: function(col) {
+        if( col.length === 0 ) {
+          App.vent.trigger('tasklist:empty');
+        }
+      },
+      error: function() {
+        App.vent.trigger('tasklist:empty');
+        alert('Something went wrong. Try again in a few minutes.');
+      }
+    });
   };
 
   return {

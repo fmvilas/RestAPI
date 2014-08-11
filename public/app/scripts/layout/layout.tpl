@@ -11,6 +11,7 @@
 
 <div id="tasksapp" class="">
   <div id="main">
+    <img id="bannerAddTasks" src="app/images/banner-add-tasks.png">
     <div id="task-list" class="animated"></div>
   </div>
 </div>

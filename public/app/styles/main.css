@@ -451,6 +451,18 @@ paper-input::shadow * {
 
 .loading #main {
   background: url(../images/loading.gif) center 100px no-repeat;
+  min-height: 200px;
+}
+
+#bannerAddTasks {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.empty #bannerAddTasks {
+  display: block;
 }
 
 #task-list {

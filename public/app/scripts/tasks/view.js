@@ -15,19 +15,42 @@ define([
     el: '#task-list',
     itemView: TaskView,
 
+    initialize: function() {
+      var $body = $('body');
+
+      App.vent.on('tasklist:empty', function() {
+        $('body').addClass('empty');
+        $body.removeClass('loading');
+      }, this);
+
+      App.vent.on('tasklist:notempty', function() {
+        $('body').removeClass('empty');
+      }, this);
+    },
+
     onRender: function() {
+      var $body = $('body');
+
       App.vent.on('tasklist:fetch', function() {
+        if( this.collection.length === 0 ) {
+          $('body').addClass('empty');
+        }
+
         this.collection.fetch({
           reset: true
         });
       }, this);
+
       this.makeSortable();
-      $('body').removeClass('loading');
+
       if( this.showUpdatedToast ) {
         document.getElementById('updatedToast').show();
       } else {
         this.showUpdatedToast = true;
       }
+
+      $body.removeClass('empty');
+      $body.removeClass('loading');
     },
 
     makeSortable: function() {

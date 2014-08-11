@@ -3,13 +3,14 @@
 "use strict";
 
 define([
+  'app',
   'marionette',
   'underscore',
   'text!tasks-header/header.tpl',
   'text!tasks-header/datetime.tpl',
   'util/image_manager',
   'bootstrap.datetimepicker'
-], function(Marionette, _, tasksHeaderTemplate, datetimeTemplate, ImageManager) {
+], function(App, Marionette, _, tasksHeaderTemplate, datetimeTemplate, ImageManager) {
 
   var TasksHeaderView = Marionette.ItemView.extend({
     el: '.tasks-header',
@@ -113,6 +114,7 @@ define([
           order: 0
         });
         this.resetTask();
+        App.vent.trigger('tasklist:notempty');
       } else {
         alert("Task's title can't be empty!");
       }
