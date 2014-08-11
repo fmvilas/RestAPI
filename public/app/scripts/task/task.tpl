@@ -1,5 +1,5 @@
 <% if( typeof picture === 'string' && picture.length > 0 ) { %>
-  <div class="task-picture task-<%- id %>-picture"></div>
+  <div class="task-picture" style="background-image: url(<%- picture %>);"></div>
 <% } %>
 </div>
 
@@ -33,7 +33,7 @@
       <div class="picture-add-wrapper animated">
         <paper-icon-button icon="file-upload" class="icon-button button-picture-add"></paper-icon-button>
       </div>
-      <div class="picture-preview animated task-<%- id %>-picture"></div>
+      <div class="picture-preview animated" style="background-image: url(<%- picture %>);"></div>
       <input type="file" accept="image/*" class="edit-picture" tabindex="-1">
       <paper-icon-button icon="clear" class="icon-button button-picture-remove"></paper-icon-button>
     </div>

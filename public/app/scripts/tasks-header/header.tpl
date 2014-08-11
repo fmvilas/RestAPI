@@ -10,7 +10,6 @@
       <paper-icon-button icon="clear" class="icon-button button-picture-remove"></paper-icon-button>
     </div>
     <paper-input class="input input-title color-responsive animated" floatingLabel label="What's next?" tabindex="1"></paper-input>
-    <paper-icon-button icon="image:image" class="icon-button button-picture color-responsive animated" tabindex="-1"></paper-icon-button>
   </div>
   <div class="controls-wrapper block">
     <paper-input class="input input-description color-responsive animated" floatingLabel multiline rows="3" label="Enter a description here..." tabindex="2"></paper-input>

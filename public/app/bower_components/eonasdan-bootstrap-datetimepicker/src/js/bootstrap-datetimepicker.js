@@ -523,7 +523,7 @@ THE SOFTWARE.
         fillHours = function () {
             moment.locale(picker.options.language);
             var table = picker.widget.find('.timepicker .timepicker-hours table'), html = '', current, i, j;
-            table.parent().hide();
+            table.parent().css('display', 'none');
             if (picker.use24hours) {
                 current = 0;
                 for (i = 0; i < 6; i += 1) {
@@ -551,7 +551,7 @@ THE SOFTWARE.
 
         fillMinutes = function () {
             var table = picker.widget.find('.timepicker .timepicker-minutes table'), html = '', current = 0, i, j, step = picker.options.minuteStepping;
-            table.parent().hide();
+            table.parent().css('display', 'none');
             if (step === 1)  {
                 step = 5;
             }
@@ -572,7 +572,7 @@ THE SOFTWARE.
 
         fillSeconds = function () {
             var table = picker.widget.find('.timepicker .timepicker-seconds table'), html = '', current = 0, i, j;
-            table.parent().hide();
+            table.parent().css('display', 'none');
             for (i = 0; i < 3; i++) {
                 html += '<tr>';
                 for (j = 0; j < 4; j += 1) {
@@ -729,23 +729,23 @@ THE SOFTWARE.
             },
 
             showPicker: function () {
-                picker.widget.find('.timepicker > div:not(.timepicker-picker)').hide();
-                picker.widget.find('.timepicker .timepicker-picker').show();
+                picker.widget.find('.timepicker > div:not(.timepicker-picker)').css('display', 'none');
+                picker.widget.find('.timepicker .timepicker-picker').css('display', 'block');
             },
 
             showHours: function () {
-                picker.widget.find('.timepicker .timepicker-picker').hide();
-                picker.widget.find('.timepicker .timepicker-hours').show();
+                picker.widget.find('.timepicker .timepicker-picker').css('display', 'none');
+                picker.widget.find('.timepicker .timepicker-hours').css('display', 'block');
             },
 
             showMinutes: function () {
-                picker.widget.find('.timepicker .timepicker-picker').hide();
-                picker.widget.find('.timepicker .timepicker-minutes').show();
+                picker.widget.find('.timepicker .timepicker-picker').css('display', 'none');
+                picker.widget.find('.timepicker .timepicker-minutes').css('display', 'block');
             },
 
             showSeconds: function () {
-                picker.widget.find('.timepicker .timepicker-picker').hide();
-                picker.widget.find('.timepicker .timepicker-seconds').show();
+                picker.widget.find('.timepicker .timepicker-picker').css('display', 'none');
+                picker.widget.find('.timepicker .timepicker-seconds').css('display', 'block');
             },
 
             selectHour: function (e) {
@@ -797,7 +797,7 @@ THE SOFTWARE.
 
         keydown = function (e) {
             if (e.keyCode === 27) { // allow escape to hide picker
-                picker.hide();
+                picker.css('display', 'none');
             }
         },
 
@@ -822,7 +822,7 @@ THE SOFTWARE.
             if (dir) {
                 picker.viewMode = Math.max(picker.minViewMode, Math.min(2, picker.viewMode + dir));
             }
-            picker.widget.find('.datepicker > div').hide().filter('.datepicker-' + dpGlobal.modes[picker.viewMode].clsName).show();
+            picker.widget.find('.datepicker > div').css('display', 'none').filter('.datepicker-' + dpGlobal.modes[picker.viewMode].clsName).css('display', 'block');
         },
 
         attachDatePickerEvents = function () {
@@ -940,7 +940,7 @@ THE SOFTWARE.
             getPickerInput().val(formatted);
             picker.element.data('date', formatted);
             if (!picker.options.pickTime) {
-                picker.hide();
+                picker.css('display', 'none');
             }
         },
 
@@ -1180,11 +1180,11 @@ THE SOFTWARE.
                 return;
             }
             if (picker.widget.hasClass('picker-open')) {
-                picker.widget.hide();
+                picker.widget.css('display', 'none');
                 picker.widget.removeClass('picker-open');
             }
             else {
-                picker.widget.show();
+                picker.widget.css('display', 'block');
                 picker.widget.addClass('picker-open');
             }
             picker.height = picker.component ? picker.component.outerHeight() : picker.element.outerHeight();
@@ -1226,7 +1226,7 @@ THE SOFTWARE.
                     return;
                 }
             }
-            picker.widget.hide();
+            picker.widget.css('display', 'none');
             picker.widget.removeClass('picker-open');
             picker.viewMode = picker.startViewMode;
             showMode();

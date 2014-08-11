@@ -9,8 +9,9 @@ requirejs.config({
     'backbone.eventbinder' : '../bower_components/backbone.eventbinder/lib/amd/backbone.eventbinder',
     'backbone.babysitter' : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
     bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min',
+    // Point to src due to bug with $.show() on Web Components
     'bootstrap.datetimepicker': '../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker',
-    jquery: '../bower_components/jquery/dist/jquery.min',
+    jquery: '../bower_components/jquery/dist/jquery',
     jqueryui: '../bower_components/jquery-ui/jquery-ui.min',
     marionette: '../bower_components/marionette/lib/core/amd/backbone.marionette',
     moment: '../bower_components/moment/min/moment.min',

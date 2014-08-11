@@ -230,6 +230,10 @@ body {
   z-index: 2;
 }
 
+paper-input::shadow * {
+  font-size: 16px;
+}
+
 
 /* ========== Task Header ========== */
 
@@ -245,7 +249,7 @@ body {
 
 .task-add-container {
   position: relative;
-  max-height: 85px;
+  max-height: 105px;
   overflow: hidden;
   z-index: 1;
 }
@@ -261,22 +265,15 @@ body {
 
 .task-add-container .title-wrapper .input-title {
   width: 100%;
-  padding-right: 50px;
+}
+
+.task-add-container .controls-wrapper {
+  max-height: 0;
+  overflow: hidden;
 }
 
 .task-add-container .input-description {
   width: 100%;
-}
-
-.task-add-container .title-wrapper .button-picture {
-  /* Let's position this element as absolute in order to
-     prevent the icon going to next line when editing. */
-  position: absolute;
-  display: block;
-  right: 20px;
-  top: 28px;
-  width: 40px;
-  height: 40px;
 }
 
 .task-add-container .picture-add-wrapper {
@@ -357,6 +354,9 @@ body {
   max-height: 1000px;
 }
 
+.adding-task .task-add-container .controls-wrapper {
+  max-height: 1000px;
+}
 
 .adding-task .title-wrapper .input-title {
   width: 100%;

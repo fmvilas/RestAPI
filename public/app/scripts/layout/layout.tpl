@@ -16,5 +16,3 @@
 </div>
 
 <paper-toast id="updatedToast" text="Task list has been updated!"></paper-toast>
-
-<style id="pictures" type="text/css"></style>

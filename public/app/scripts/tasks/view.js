@@ -23,31 +23,11 @@ define([
       }, this);
       this.makeSortable();
       $('body').removeClass('loading');
-      this.createStyleTagsForPictures();
       if( this.showUpdatedToast ) {
         document.getElementById('updatedToast').show();
       } else {
         this.showUpdatedToast = true;
       }
-    },
-
-    /*
-     * Instead of applying base64 to inline style, which is
-     * slow, it adds a new CSS class with the ID of the task.
-     */
-    createStyleTagsForPictures: function() {
-      var $style = $('#pictures'),
-          css = '';
-
-      _.each(this.collection.models, function(model) {
-        if( model.get('picture') ) {
-          css += '.task-' + model.get('id') + '-picture {\n';
-          css += '  background-image: url(' + model.get('picture') + ');\n';
-          css += '}\n\n';
-        }
-      });
-
-      $style.text(css);
     },
 
     makeSortable: function() {
