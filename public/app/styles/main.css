@@ -234,6 +234,10 @@ paper-input::shadow * {
   font-size: 16px;
 }
 
+#task-list .view-description a {
+  color: #0f9d58;
+}
+
 
 /* ========== Task Header ========== */
 

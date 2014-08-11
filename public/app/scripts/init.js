@@ -16,6 +16,7 @@ requirejs.config({
     marionette: '../bower_components/marionette/lib/core/amd/backbone.marionette',
     moment: '../bower_components/moment/min/moment.min',
     'moment.timezone': '../bower_components/moment-timezone/builds/moment-timezone.min',
+    showdown: 'vendor/showdown',
     text: '../bower_components/requirejs-text/text',
     underscore: '../bower_components/lodash/lodash'
   },
@@ -35,6 +36,9 @@ requirejs.config({
     },
     jqueryui: {
       deps: ['jquery']
+    },
+    showdown: {
+      exports: 'Showdown'
     }
   }
 });

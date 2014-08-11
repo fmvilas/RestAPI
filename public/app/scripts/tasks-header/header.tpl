@@ -12,7 +12,7 @@
     <paper-input class="input input-title color-responsive animated" floatingLabel label="What's next?" tabindex="1"></paper-input>
   </div>
   <div class="controls-wrapper block">
-    <paper-input class="input input-description color-responsive animated" floatingLabel multiline rows="3" label="Enter a description here..." tabindex="2"></paper-input>
+    <paper-input class="input input-description color-responsive animated" floatingLabel multiline rows="5" label="Enter a description here..." tabindex="2"></paper-input>
 
     <div class="task-toolbar animated">
       <div class="color-selector animated">

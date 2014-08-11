@@ -6,8 +6,9 @@ define([
   'underscore',
   'util/image_manager',
   'text!task/task.tpl',
+  'showdown',
   'moment'
-], function(Marionette, _, ImageManager, taskTemplate, moment) {
+], function(Marionette, _, ImageManager, taskTemplate, Showdown, moment) {
 
   var TaskView = Marionette.ItemView.extend({
       tagName: 'div',
@@ -56,8 +57,10 @@ define([
       },
 
       onRender: function() {
-        var desc = this.ui.viewDescription.text(this.model.get('description')).html();
-        this.ui.viewDescription.html( desc.replace(new RegExp('\r?\n', 'g'), '<br>') );
+        var markdown = new Showdown.converter(),
+            desc = markdown.makeHtml(this.model.get('description'));
+
+        this.ui.viewDescription.html(desc);
 
         delete this.model.attributes.formatted_created_at;
         delete this.model.attributes.formatted_updated_at;

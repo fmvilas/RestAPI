@@ -6,6 +6,7 @@
     "bootstrap-file-input": "~1.0.0",
     "core-elements": "Polymer/core-elements#~0.3.4",
     "eonasdan-bootstrap-datetimepicker": "~3.0.2",
+    "highlightjs": "~8.0.0",
     "marionette": "~1.0.2",
     "moment": "~2.8.1",
     "moment-timezone": "~0.2.1",

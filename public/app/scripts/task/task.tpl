@@ -50,7 +50,7 @@
 
   <div class="controls-wrapper block">
     <paper-input class="input input-title color-responsive animated" floatingLabel label="What's next?" value="<%- title %>"></paper-input>
-    <paper-input class="input input-description color-responsive animated" floatingLabel multiline rows="3" label="Enter a description here..." value="<%- description %>"></paper-input>
+    <paper-input class="input input-description color-responsive animated" floatingLabel multiline rows="7" label="Enter a description here..." value="<%- description %>"></paper-input>
 
     <% if( date ) { %>
       <core-toolbar class="selected-date-time toolbar color-responsive" data-date="<%- date %>">
